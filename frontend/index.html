@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Wails Mobile</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        input {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+            padding: calc(1rem + env(safe-area-inset-top)) 1rem calc(1rem + env(safe-area-inset-bottom)) 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .header {
+            padding: 0.5rem 0.25rem 0 0.25rem;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin: 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+            font-weight: 500;
+        }
+        .card {
+            background: #1e293b;
+            border-radius: 24px;
+            padding: 1.25rem;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            width: 100%;
+        }
+        .section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #94a3b8;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .button-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            width: 100%;
+        }
+        .button-pair {
+            display: flex;
+            gap: 0.5rem;
+            width: 100%;
+        }
+        button {
+            flex: 1;
+            min-width: 0;
+            border: none;
+            border-radius: 14px;
+            padding: 0.85rem 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            transition: filter 0.1s ease, transform 0.1s ease;
+        }
+        button:active {
+            transform: scale(0.98);
+            filter: brightness(0.9);
+        }
+        .btn-notif { background: #ec4899; color: #ffffff; }
+        .btn-bio { background: #8b5cf6; color: #ffffff; }
+        .btn-file { background: #3b82f6; color: #ffffff; }
+        .btn-check { background: #475569; color: #ffffff; }
+        
+        pre {
+            margin: 0;
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 1rem;
+            border-radius: 16px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+            border: 1px solid #334155;
+            min-height: 120px;
+            max-height: 240px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Plugin Test</h1>
+            <div class="subtitle">Notification, Biometric & FilePicker</div>
+        </div>
+
+        <!-- Section 1: Notifications -->
+        <div class="card">
+            <div class="section-title">Notifications</div>
+            <div class="button-stack">
+                <button id="request-notif" class="btn-notif">Request Notification Permission</button>
+                <button id="send-notif" class="btn-notif">Send Unique Notification</button>
+            </div>
+        </div>
+
+        <!-- Section 2: Biometrics -->
+        <div class="card">
+            <div class="section-title">Biometric Security</div>
+            <div class="button-stack">
+                <button id="check-bio" class="btn-check">Check Availability</button>
+                <button id="auth-bio" class="btn-bio">Authenticate with Biometrics</button>
+            </div>
+        </div>
+
+        <!-- Section 3: File Selection -->
+        <div class="card">
+            <div class="section-title">File System</div>
+            <div class="button-stack">
+                <button id="pick-image" class="btn-file">Pick Single Image</button>
+                <button id="pick-files" class="btn-file">Pick Multiple Files</button>
+            </div>
+        </div>
+
+        <!-- Section 4: Console -->
+        <div class="card">
+            <div class="section-title">Test Results</div>
+            <pre id="output">Ready to test...</pre>
+        </div>
+    </div>
+
+    <script src="wails.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
