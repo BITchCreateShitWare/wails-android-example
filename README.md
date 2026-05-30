@@ -1,6 +1,6 @@
 # HEADER NOTICE
 ## ref links:
-- wails android build branch of lofiengine application which is better that tauri version: https://gitee.com/EEPPEE_admin/lofi-engine/tree/wails-android-build/
+- wails android build branch of lofiengine application which is better than tauri version: https://gitee.com/EEPPEE_admin/lofi-engine/tree/wails-android-build/
 
 
 
