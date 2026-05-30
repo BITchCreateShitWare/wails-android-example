@@ -1,3 +1,12 @@
+# HEADER NOTICE
+## ref links:
+- wails android build branch of lofiengine application which is better that tauri version: https://gitee.com/EEPPEE_admin/lofi-engine/tree/wails-android-build/
+
+
+
+
+
+
 # Hello World Mobile Sample
 
 A minimal mobile Go example packaged for Android using `gomobile bind`.
